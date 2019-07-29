@@ -1,8 +1,3 @@
-
-## MMM Contributing Datasets
-
-The MMM project mapped and transformed three separate datasets against the unified MMM data model. This section introduces these sources: the Schoenberg Database of Manuscripts (SDBM), Bibale, and the Medieval Manuscripts in Oxford Libraries catalogue. Each dataset's original structure and format impacted the development and implementation of the MMM data model.
-
 ### Schoenberg Database of Manuscripts (SDBM)
 
 The SDBM aggregates observations of pre-modern manuscripts drawn from over 13,500 auction and sales catalogs, inventories, catalogs from institutional and private collections, and other sources that document the sales and locations of these books from around the world. Using 36 possible fields, entries in the SDBM record data from observations made in these sources and assist researchers in locating and identifying particular manuscripts, establishing provenance, and aggregating descriptive information about specific manuscripts as they are described in various sources over time. The SDBM data is stored in a MySQL relational database, with Ruby on Rails providing the overall web framework. Blacklight provides front end display support for public searching. The SDBM is hosted by the University of Pennsylvania Libraries and is publicly available [here](https://sdbm.library.upenn.edu/).
@@ -24,7 +19,7 @@ The SDBM's data model is designed to capture data about both manuscripts and the
 **SDBM Place Authority files** appear within an Entry to indicate where a manuscript was produced. These files link to the Getty Thesaurus of Geographic Names, GeoNames, or VIAF, when possible. SDBM Places also link to SDBM Name Authority files.
 
 
-#### SDBM to MMM transformation pipeline
+#### MMM transformation
 
 Coming soon!
 
