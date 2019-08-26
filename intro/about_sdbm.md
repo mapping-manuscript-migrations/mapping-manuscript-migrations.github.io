@@ -21,8 +21,10 @@ The SDBM's data model is designed to capture data about both manuscripts and the
 
 #### MMM transformation
 
-Coming soon!
+SDBM users access the SDBM SQL database via a user interface powered by Ruby on Rails. Whenever a user makes a change to a SDBM record, that change is reflected in the SDBM user interface, which in turn changes the data stored in the SQL database. The change also triggers a messaging process overseen by RabbitMQ that communicates this change to the SDBM RDF triplestore. The data in this triplestore adheres to the SDBM data model, so it undergoes a final transformation against the MMM data model before it arrives in the MMM triplestore.
+
+![Image of SDBM Data Transformation](SDBMtoMMMtransformationprocess.png)
 
 #### Mapping of an SDBM Entry into MMM
 
-Coming soon!
+![Image of SDBM MS Record mapping to MMM](MappingSDBM_MS_RecordtoMMM.png)
