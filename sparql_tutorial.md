@@ -14,7 +14,7 @@ After defining our manuscript variable as a manifestation singleton (efrbroo:F4_
 
 [http://yasgui.org/short/B6U1RkSbP](http://yasgui.org/short/B6U1RkSbP)
 
-```
+```sql
 SELECT * WHERE {
   ?manuscript a efrbroo:F4_Manifestation_Singleton.
   ?event_uri ecrm:P30_transferred_custody_of|mmms:observed_manuscript ?manuscript ;
@@ -30,7 +30,7 @@ Modify the Query 1 with a BIND clause, mandating a specific URI for your place. 
 
 [http://yasgui.org/short/dBZ4IqLv7](http://yasgui.org/short/dBZ4IqLv7)
 
-```
+```sql
 SELECT * WHERE {
   BIND (<http://ldf.fi/mmm/place/tgn_7008038> AS ?place_uri)
   ?manuscript a efrbroo:F4_Manifestation_Singleton.
@@ -46,7 +46,7 @@ SELECT * WHERE {
 Use a VALUES clause to specify each location's uri as the desired values for the ?place_uri variable in your query. The query below returns provenance events that occurred in Paris or Rouen.
 
 [http://yasgui.org/short/0zH7QGjuG](http://yasgui.org/short/0zH7QGjuG)
-```
+```sql
 SELECT * WHERE {
   VALUES ?place_uri {<http://ldf.fi/mmm/place/tgn_7008929> <http://ldf.fi/mmm/place/tgn_7008038>}
   ?event_uri ecrm:P7_took_place_at ?place_uri ;
@@ -62,7 +62,7 @@ SELECT * WHERE {
 To find all provenance events that occurred within a broader region or country, use the ```gvp:broaderPreferred*``` predicate, with the desired region's uri as its object. By adding the asterisk to the end of this predicate, the query will include results not just for the place specified, but also any location within that place, according to the Getty Thesaurus of Geographic Names hierarchy. The query below returns provenance events that took place in France.
 
 [http://yasgui.org/short/647ASfkms](http://yasgui.org/short/647ASfkms)
-```
+```sql
 SELECT * WHERE {    
   ?place_uri gvp:broaderPreferred* <http://ldf.fi/mmm/place/tgn_1000070> .
   ?event_uri ecrm:P7_took_place_at ?place_uri ;
@@ -78,7 +78,7 @@ SELECT * WHERE {
 To count the total number of entities that occurred in France, use the same query as Query 1.3, but edit the SELECT statement to include the COUNT aggregate function.
 
 [http://yasgui.org/short/lJkT4mpHg](http://yasgui.org/short/lJkT4mpHg)
-```
+```sql
 SELECT COUNT (*) WHERE {
   ?place_uri gvp:broaderPreferred* <http://ldf.fi/mmm/place/tgn_1000070> .
   ?event_uri ecrm:P7_took_place_at ?place_uri ;
@@ -94,7 +94,7 @@ SELECT COUNT (*) WHERE {
 To count only unique provenance events that occurred in France, use the same query as Query 1.4, but add the DISTINCT modifier to the COUNT function, and specify that the ?event_uri variable is the variable you want to count.
 
 [http://yasgui.org/short/eZ_9E6fi5](http://yasgui.org/short/eZ_9E6fi5)
-```
+```sql
 SELECT COUNT (DISTINCT ?event_uri) WHERE {
   ?place_uri gvp:broaderPreferred* <http://ldf.fi/mmm/place/tgn_1000070> .
   ?event_uri ecrm:P7_took_place_at ?place_uri ;
@@ -110,7 +110,7 @@ SELECT COUNT (DISTINCT ?event_uri) WHERE {
 To count the number of manuscripts that had a provenance event that occurred in France, change the variable in the SELECT statement in Query 1.5 from ?event_uri to ?manuscript. A single manuscript may have many different provenance events in the same location over the course of its history, making the DISTINCT modifier particularly important in this case.
 
 [http://yasgui.org/short/ZorfClIqZ](http://yasgui.org/short/ZorfClIqZ)
-```
+```sql
 SELECT COUNT (DISTINCT ?manuscript) WHERE {
   ?place_uri gvp:broaderPreferred* <http://ldf.fi/mmm/place/tgn_1000070> .
   ?event_uri ecrm:P7_took_place_at ?place_uri ;
@@ -130,7 +130,7 @@ To find the names of Actors who owned manuscripts, use the query below. Manuscri
 
 [http://yasgui.org/short/LwjrUN1b8](http://yasgui.org/short/LwjrUN1b8)
 
-```
+```sql
 SELECT ?manuscript ?owner_label WHERE {
   ?manuscript a efrbroo:F4_Manifestation_Singleton ;
 	ecrm:P51_has_former_or_current_owner ?owner .
@@ -145,7 +145,7 @@ To find a specific Actor's uri, modify Query 2 with a FILTER clause that include
 
 [http://yasgui.org/short/Cal0-QKZg](http://yasgui.org/short/Cal0-QKZg)
 
-```
+```sql
 SELECT ?manuscript ?owner ?owner_label WHERE {
   ?manuscript a efrbroo:F4_Manifestation_Singleton ;
 	ecrm:P51_has_former_or_current_owner ?owner .
@@ -159,7 +159,7 @@ SELECT ?manuscript ?owner ?owner_label WHERE {
 We found Sir Thomas Phillipps' uri in Query 2.1. Now we can use that uri to find all of the manuscripts (manifestation singletons) he owned. Modify Query 2 using the VALUES clause to specify that the ?owner variable must link to Sir Thomas Phillipps' uri.
 
 [http://yasgui.org/short/4OdGumVNL](http://yasgui.org/short/4OdGumVNL)
-```
+```sql
 SELECT ?manuscript ?owner ?owner_label WHERE {
   VALUES ?owner { <http://ldf.fi/mmm/actor/bodley_person_73979081> }
   ?manuscript a efrbroo:F4_Manifestation_Singleton ;
@@ -173,7 +173,7 @@ SELECT ?manuscript ?owner ?owner_label WHERE {
 You can search for manuscripts owned by more than one Actor by including multiple VALUE clauses in your query. The query below modifies Query 2.2 to return manuscripts (manifestation singletons) owned by both Sir Thomas Phillipps and Chester Beatty. We first created two separate VALUE clauses for our two separate owners (adding Chester Beatty as ?owner2). We then added ?owner2 as an object of our ?manuscript variable via the same ```ecrm:P51_has_former_or_current_owner``` predicate.
 
 [http://yasgui.org/short/Qxo3zPUd7](http://yasgui.org/short/Qxo3zPUd7)
-```
+```sql
 SELECT ?manuscript ?manuscript_label ?owner ?owner_label WHERE {
   VALUES ?owner { <http://ldf.fi/mmm/actor/bodley_person_73979081> }
 	VALUES ?owner2 { <http://ldf.fi/mmm/actor/bibale_6119> }
