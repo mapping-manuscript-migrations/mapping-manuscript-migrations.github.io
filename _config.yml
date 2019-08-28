@@ -1,3 +1,4 @@
 theme: jekyll-theme-slate
 title: Mapping Manuscript Migrations
 highlighter: rouge
+baseurl: /mapping-manuscript-migrations.github.io
