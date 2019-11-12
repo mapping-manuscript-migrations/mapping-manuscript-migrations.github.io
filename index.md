@@ -23,4 +23,4 @@ The MMM project mapped and transformed three separate datasets against the unifi
 
 SPARQL tutorials
 ------
-#### Follow [this link](sparql_tutorial.md) to access SPARQL tutorials related to the MMM dataset.
+#### Follow [this link](sparql/sparql_tutorial.md) to access SPARQL tutorials related to the MMM dataset.
