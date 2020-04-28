@@ -25,6 +25,6 @@ SDBM users access the SDBM SQL database via a user interface powered by Ruby on 
 
 ![Image of SDBM Data Transformation](SDBMtoMMMtransformationprocess.png)
 
-#### Mapping of an SDBM Entry into MMM
+<!-- #### Mapping of an SDBM Entry into MMM
 
-![Image of SDBM MS Record mapping to MMM](MappingSDBM_MS_RecordtoMMM.png)
+![Image of SDBM MS Record mapping to MMM](MappingSDBM_MS_RecordtoMMM.png) -->
