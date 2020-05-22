@@ -1,3 +1,11 @@
+<script src="https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
+<script>addBackToTop({
+  diameter: 56,
+  backgroundColor: 'rgb(103, 58, 183)',
+  textColor: '#fff'
+})</script>
+
+
 ## SPARQL tutorials
 The queries described here provide the building blocks you will need to explore the MMM dataset using SPARQL.
 
@@ -24,20 +32,18 @@ We'll use a shortcut to connect our variable with our object, ```a```. This is a
 [https://api.triplydb.com/s/nZwMIDBR](https://api.triplydb.com/s/nZwMIDBR)
 
 ```
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX efrbroo: <http://erlangen-crm.org/efrbroo/>
 
 SELECT * WHERE {
   ?manuscript a efrbroo:F4_Manifestation_Singleton .
 }
-
 LIMIT 10
-```  
+```
 <br>
 ------
 
-**Query 1.2 Find provenance events at the places associated with them**
+**Query 1.2 Find provenance events and the places associated with them**
 
 Now that we've successfully found manuscripts, we can find provenance events associated with them. Provenance events in MMM can refer to either transactions (```ecrm:P30_transferred_custody_of```), or simply the ownership of a manuscript (```mmms:observed_manuscript```). If the location where that event occurred is known, the provenance event will link to that place via the ```ecrm:P7_took_place_at``` property.
 
@@ -58,7 +64,7 @@ SELECT * WHERE {
   ?place_uri skos:prefLabel ?place_label .
 }
 LIMIT 10
-```  
+```
 <br>
 ------
 
@@ -443,6 +449,57 @@ LIMIT 2000
 ```
 <br>
 ------
+#### Advanced queries
+These queries combine strategies demonstrated in the previous sections
+
+------
+**Query 4.1: Which manuscripts from Sir Thomas Phillipps’ collection are in British libraries now?**
+
+This question can only be answered in a modified form with the MMM data. Our Actor class only distinguishes between Persons, Groups, and Actors (the last being a catch-all designation for instances where we don’t know whether an Actor is a Person or a Group). Rather than finding manuscripts owned by libraries, the best we can do is find manuscripts owned by a Group. Another caveat is that our location data for Actors associated with Britain specifically is limited. Much of our geographic association for Actors derives from VIAF, which uses the United Kingdom as the geographic designation for their records associated with Britain. This means that the best way to find British Actors is to search for Actors associated with the United Kingdom, with the understanding that these results may also include Actors associated with Northern Ireland.
+
+With these limitations in mind, the modified query can be understood as: Which manuscripts from Sir Thomas Phillipps’ collection are also associated with Groups who have a geographic association with the United Kingdom?
+
+To construct our query, we start by finding the manuscripts in Phillipps’ collection. First, we write a ```VALUES``` statement to assign Sir Thomas Phillipps’ uri to our first ```?owner``` variable. We follow that with our typical statements establishing the ```?manuscript``` variable and linking that to the first owner. We then write another statement to include manuscripts that list Phillipps in their collection label, since provenance can be indicated in manifestation singletons either through the ```?owner``` or ```?collection``` class. We filter the results based on the collection label, to include the name Phillipps but not the name Halliwell (Phillipps’ son-in-law, whose name is Halliwell-Phillipps and had his own manuscript collection). Then we use the ```UNION``` function to connect the results of these two statements.
+
+Now that we have the manuscripts in Phillipps’ collection, we can narrow these results to those manuscripts that have another type of owner, a Group associated with the United Kingdom. We first establish our ```?owner2``` variable as the ```ecrm:E74_Group``` class. We link this second owner to our ```?manuscript``` variable, then get its label and link to its formation event via the ```ecrm:P98i_was_born``` predicate. Formation events link to their associated place via the ```ecrm:P7_took_place_at``` predicate, which we can mandate for our query to include only places within the United Kingdom.
+
+[https://api.triplydb.com/s/S55GFW_8M](https://api.triplydb.com/s/S55GFW_8M)
+```
+PREFIX gvp: <http://vocab.getty.edu/ontology#>
+PREFIX ecrm: <http://erlangen-crm.org/current/>
+PREFIX efrbroo: <http://erlangen-crm.org/efrbroo/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+# Question: How many manuscripts formerly owned by Sir Thomas Phillipps are in British libraries?
+
+SELECT DISTINCT ?manuscript ?owner2 ?owner2_label ?owner2_formation WHERE {
+  VALUES ?owner {
+    <http://ldf.fi/mmm/actor/bodley_person_73979081> # defined owner as Sir Thomas Phillipps
+  }
+
+  { ?manuscript a efrbroo:F4_Manifestation_Singleton ;
+  ecrm:P51_has_former_or_current_owner ?owner .
+  }
+  UNION
+  { ?manuscript a efrbroo:F4_Manifestation_Singleton ;
+  ecrm:P46i_forms_part_of ?collection .
+    ?collection skos:prefLabel ?collection_label .
+    FILTER (CONTAINS (?collection_label, "Phillipps"))
+    FILTER (!CONTAINS (?collection_label, "Halliwell"))
+  }
+
+  ?owner2 a ecrm:E74_Group .
+  ?manuscript ecrm:P51_has_former_or_current_owner ?owner2 .
+  ?owner2 skos:prefLabel ?owner2_label ;
+          ecrm:P98i_was_born ?owner2_formation .
+  ?owner2_formation ecrm:P7_took_place_at ?owner2_place .
+  ?owner2_place gvp:broaderPreferred* <http://ldf.fi/mmm/place/tgn_7008591> . # uri for United Kingdom
+
+}
+
+```
 
 <!---#### Works and all that
 Querying data about the works contained within manuscripts is tricky, and there will be many nuances in the results you receive. MMM follows the [FRBRoo model](https://www.ifla.org/files/assets/cataloguing/FRBRoo/frbroo_v_2.4.pdf) for describing the relationship between manuscripts and the works they contain (see page 17 of the linked FRBRoo description for a diagram illustrating this hierarchy).
