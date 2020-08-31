@@ -280,13 +280,13 @@ form {
   border: none;
   outline: none;
   color: white;
-  padding: 14px 16px;
+  padding: 18px 20px;
   background-color: inherit;
   font-family: inherit; /* Important for vertical align on mobile phones */
   margin: 0; /* Important for vertical align on mobile phones */
 }
 
-/* Add a red background color to navbar links on hover */
+/* Add a purple background color to navbar links on hover */
 .navbar a:hover, .dropdown:hover .dropbtn {
   background-color: rgb(103, 58, 183);
 }
@@ -305,7 +305,7 @@ form {
 .dropdown-content a {
   float: none;
   color: black;
-  padding: 12px 16px;
+  padding: 14px 16px;
   text-decoration: none;
   display: block;
   text-align: left;
