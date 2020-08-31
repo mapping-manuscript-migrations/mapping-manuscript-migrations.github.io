@@ -1,3 +1,5 @@
+## MMM Schema
+
 | Class/Property                                                                                                            | Cardinality | Range                               |
 |---------------------------------------------------------------------------------------------------------------------------|-------------|-----------------------------------  |
 | Namespaces:                                                                                                               |             |                                     |
@@ -116,5 +118,3 @@
 | `mmms:Folios` / `mmms:Columns` / `mmms:Lines` / `mmms:DecoratedInitials` / `mmms:HistoriatedInitials` / `mmms:Miniatures` |             |                                     |
 | `ecrm:P90_has_value`                                                                                                      |             | integer                             |
 | `mmms:Database`                                                                                                           |             |                                     |
-
-

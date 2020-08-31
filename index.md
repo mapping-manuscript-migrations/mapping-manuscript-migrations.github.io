@@ -1,26 +1,11 @@
+#### About this site
 
-This website hosts the technical documentation for the Mapping Manuscript Migrations (MMM) project.
+This website hosts the technical documentation for the Mapping Manuscript Migrations (MMM) project, including the [MMM Data Model](data_model/mmm.md), [Schema](data_model/mmm-schema), and [Data Transformation Pipeline](transform/transform). A [SPARQL tutorial](sparql/sparql_tutorial.md) offers sample queries that can be modified according to researcher needs.
 
-Mapping Manuscript Migrations uses semantic technologies to unite records from three datasets: the _Schoenberg Database of Manuscripts_ from the University of Pennsylvania, the _Bibale_ database from the Institut de recherche et d’histoire des textes, and the _Medieval Manuscripts Catalogue_ from the University of Oxford. This project is a partnership between four institutions, funded under Round 4 of the Trans-Atlantic Platform’s Digging into Data Challenge. Contributors include the Schoenberg Institute for Manuscript Studies at the University of Pennsylvania, the Bodleian Library and the Oxford e-Research Centre at the University of Oxford, the Institut de recherche et d’histoire des textes, and the Semantic Computing Research Group at Aalto University, Helsinki.
+The MMM project mapped and transformed three separate datasets against the unified MMM data model: the [The Schoenberg Database of Manuscripts](intro/about_sdbm), [Bibale](intro/about_bibale), and the [Medieval Manuscripts in Oxford Libraries](intro/about_bod) catalogue. Each dataset's original structure and format impacted the development and implementation of the MMM data model.
 
-###### [MMM Data Model](data_model/mmm.md)
-###### [MMM Data Model Schema](data_model/mmm-schema)
-------
+Use the [public portal](https://mappingmanuscriptmigrations.org/) to search and browse the unified MMM data, or visit our [blog](http://blog.mappingmanuscriptmigrations.org/) to learn more about the project.
 
+#### About MMM
 
-### Contributing Datasets
-------
-
-The MMM project mapped and transformed three separate datasets against the unified MMM data model. This section introduces these sources: the Schoenberg Database of Manuscripts (SDBM), Bibale, and the Medieval Manuscripts in Oxford Libraries catalogue. Each dataset's original structure and format impacted the development and implementation of the MMM data model.
-
-###### [The Schoenberg Database of Manuscripts](intro/about_sdbm)
-
-###### [Medieval Manuscripts in Oxford Libraries](intro/about_bod)
-
-###### [BIBALE](intro/about_bibale)
-------
-
-
-### SPARQL tutorials
-------
-Follow [this link](sparql/sparql_tutorial.md) to access SPARQL tutorials related to the MMM dataset.
+Mapping Manuscript Migrations uses semantic technologies to unite records from three datasets: the [Schoenberg Database of Manuscripts](https://sdbm.library.upenn.edu/) at the University of Pennsylvania, the [Bibale](http://bibale.irht.cnrs.fr/) database at the Institut de recherche et d’histoire des textes, and the [Medieval Manuscripts Catalogue](https://medieval.bodleian.ox.ac.uk/) at the University of Oxford. This project is a partnership between four institutions, funded under Round 4 of the Trans-Atlantic Platform’s Digging into Data Challenge. Contributors include the Schoenberg Institute for Manuscript Studies at the University of Pennsylvania, the Bodleian Library and the Oxford e-Research Centre at the University of Oxford, the Institut de recherche et d’histoire des textes, and the Semantic Computing Research Group at Aalto University, Helsinki.

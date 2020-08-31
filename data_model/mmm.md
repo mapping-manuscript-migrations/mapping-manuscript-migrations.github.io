@@ -1,6 +1,4 @@
-
-
-# Data Model
+## MMM Data Model
 
 The MMM data model serves the needs of this project, but its components and design will be of interest for anyone concerned with modeling manuscript provenance data. It incorporates concepts from a variety of existing ontologies, including Erlangen CIDOC-CRM for events, FRBRoo for bibliographic information, and the Getty Thesaurus of Geographic Names for physical locations. We also created bespoke MMM classes and properties that serve both unique instances in our source datasets and manuscript studies more generally. The data model is clustered into three main sections, indicated by the dotted lines within the diagram: manuscripts and related intellectual activity; transaction/manuscript owner observations; and collections. The entire [MMM Schema](/mapping-manuscript-migrations.github.io/data_model/mmm-schema) is available on this site, and a downloadable image of the data model is available [here](/mapping-manuscript-migrations.github.io/data_model/MMMdatamodel.pdf).
 
