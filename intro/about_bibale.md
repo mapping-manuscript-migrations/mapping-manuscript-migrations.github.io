@@ -8,21 +8,22 @@ The development of Bibale and the data entering have been made possible by the [
 
 All Bibale records belong to one of eight objects. Any record can be associated as many times as wished for with any other record (including one belonging to the same object, e.g. a person with another person to say that they are father and son; a manuscript with another manuscript to say that they were once bound together or have been copied one from the other; a work to another work to say that one is a translation of the other; etc.).  
 
+To date (August 2020) Bibale contains about 54,000 records:
 
-To date (August 2019) Bibale contains about 39.000 records:  
-* 10.500 persons (about 2.000 of which are institutions)
-* 2.000 collections (private or public libraries)
-* 12.000 books (almost all manuscripts, some printed books)
-* 700 bindings
-* 10.000 provenance marks (ex-librises, ex-donos, heraldic arms, etc.)
-* 500 external sources (ancient catalogues, inventories, lists, etc.)
-* 1.250 texts or editions (the version of a text found in a specific manuscript)
-* 2.000 works
+* 13,500 persons (about 2.000 of which are institutions)
+* 3,500 collections (private or public libraries)
+* 16,000 books (mainly manuscripts, some printed books)
+* 13,500 provenance marks (ex-librises, ex-donos, heraldic arms, etc.)
+* 500 other sources (ancient catalogues, inventories, lists, etc.)
+* 750 bindings
+* 1,250 texts or editions (the version of a text found in a specific manuscript)
+* 2,000 works
 
 All records, all fields and all associations can be provided with a “level of certainty”:
 * green = certain
 *	orange = not so sure, uncertain
 *	red = rejected
+
 This means that, for example, a manuscript linked by an association “owned by/in the possession of” with a person can be so for sure, but also just possibly, and even indicated in red. In the last case this will usually be explained in the comment field, e.g. an ownership relation has been supposed in the past, but rejected since.
 
 [Online presentation](https://www.youtube.com/watch?v=adQkMtYRChc&t=8s) in French (25 minutes).
