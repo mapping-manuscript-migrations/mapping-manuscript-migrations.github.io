@@ -17,6 +17,6 @@ For the Mapping Manuscript Migrations project, the XML files were transformed in
 
 This initial mapping was based on the CIDOC-CRM ontology. The resulting RDF was then mapped to the Unified Data Model developed for the Mapping Manuscript Migrations project, which combines entities and properties from CIDOC-CRM and FRBROO and adds some project-specific entities and properties.  
 
-Scripts and mapping files can be found here: https://github.com/mapping-manuscript-migrations/bodleian-mmm
+Scripts and mapping files can be found here: [https://github.com/mapping-manuscript-migrations/bodleian-mmm]
 
 The transformation process produces more than 80,500 RDF triples. A small sample of the RDF can be seen here: [http://yasgui.org/short/jZ6h1tSwv](http://yasgui.org/short/jZ6h1tSwv)
