@@ -8,7 +8,7 @@ The MMM project mapped and transformed three separate datasets against the unifi
 
 Use the [public portal](https://mappingmanuscriptmigrations.org/) to search and browse the unified MMM data, or visit our [blog](http://blog.mappingmanuscriptmigrations.org/) to learn more about the project.
 
-You can download the entire MMM dataset from Zenodo: [https://zenodo.org/record/4019643](https://zenodo.org/record/4019643)
+You can also download the entire MMM dataset from Zenodo: [https://zenodo.org/record/4019643](https://zenodo.org/record/4019643)
 
 #### About MMM
 
