@@ -8,6 +8,8 @@ The MMM project mapped and transformed three separate datasets against the unifi
 
 Use the [public portal](https://mappingmanuscriptmigrations.org/) to search and browse the unified MMM data, or visit our [blog](http://blog.mappingmanuscriptmigrations.org/) to learn more about the project.
 
+You can download the entire MMM dataset from Zenodo: [https://zenodo.org/record/4019643](https://zenodo.org/record/4019643)
+
 #### About MMM
 
 Mapping Manuscript Migrations uses semantic technologies to unite records from three datasets: the [Schoenberg Database of Manuscripts](https://sdbm.library.upenn.edu/) at the University of Pennsylvania, the [Bibale](http://bibale.irht.cnrs.fr/) database at the Institut de recherche et d’histoire des textes, and the [Medieval Manuscripts Catalogue](https://medieval.bodleian.ox.ac.uk/) at the University of Oxford. This project is a partnership between four institutions, funded under Round 4 of the Trans-Atlantic Platform’s Digging into Data Challenge. Contributors include the Schoenberg Institute for Manuscript Studies at the University of Pennsylvania, the Bodleian Library and the Oxford e-Research Centre at the University of Oxford, the Institut de recherche et d’histoire des textes, and the Semantic Computing Research Group at Aalto University, Helsinki.
