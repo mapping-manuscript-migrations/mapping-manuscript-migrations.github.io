@@ -7,7 +7,7 @@
 
 
 ## SPARQL tutorials
-The queries described here provide the building blocks you will need to explore the MMM dataset using SPARQL. The address of the MMM SPARQL endpoint is http://ldf.fi/mmm/sparql
+The queries described here provide the building blocks you will need to explore the MMM dataset using SPARQL. The address of the MMM SPARQL endpoint is: [http://ldf.fi/mmm/sparql](http://ldf.fi/mmm/sparql).
 
 Refer to the [MMM Data Model](/mapping-manuscript-migrations.github.io/data_model/MMMdatamodel.pdf) and the [MMM Schema](/mapping-manuscript-migrations.github.io/data_model/mmm-schema) for more information about the classes and properties used in MMM. Click on the YASGUI link at the end of each query description to open that query in [yasgui.org](https://yasgui.triply.cc/), where you can run the query yourself against the MMM triplestore.
 
